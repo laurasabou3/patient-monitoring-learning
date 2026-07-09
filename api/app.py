@@ -98,7 +98,7 @@ class PatientHandler(BaseHTTPRequestHandler):
 
                 connection = pyodbc.connect(
                     "DRIVER={ODBC Driver 18 for SQL Server};"
-                    "SERVER=db,1433;"
+                    "SERVER=patient-db-service,1433;"
                     "DATABASE=PatientMonitoring;"
                     "UID=sa;"
                     "PWD=Password123!;"

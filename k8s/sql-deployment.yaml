@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: patient-db
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: patient-db
+
+  template:
+    metadata:
+      labels:
+        app: patient-db
+
+    spec:
+      containers:
+      - name: patient-db
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        ports:
+        - containerPort: 1433
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: MSSQL_SA_PASSWORD
+          value: "Password123!"

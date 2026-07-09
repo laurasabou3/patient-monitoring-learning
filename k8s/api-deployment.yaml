@@ -1,0 +1,25 @@
+apiVersion: apps/v1  #versiunea obiectului
+
+kind: Deployment  #obiectul pe care il scriu este un deployment
+
+metadata:
+  name: patient-api #debnumirea deployment-ului
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: patient-api
+
+  template:
+    metadata:
+      labels:
+        app: patient-api
+
+    spec:
+      containers:
+      - name: patient-api
+        image: patient-api:latest
+        ports:
+        - containerPort: 8000

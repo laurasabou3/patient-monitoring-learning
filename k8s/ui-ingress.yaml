@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: patient-ui-ingress
 spec:
+  ingressClassName: nginx
   rules:
     - http:
         paths:

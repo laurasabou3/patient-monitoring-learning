@@ -23,6 +23,8 @@ database:
 
   containerPort: 1433
 
+  saPassword: "Password123!"
+
   service:
     port: 1433
     targetPort: 1433

@@ -8,7 +8,43 @@ api:
     tag: latest
 
   containerPort: 8000
-  
+
   service:
     port: 8000
     targetPort: 8000
+
+
+database:
+  replicas: 1
+
+  image:
+    repository: mcr.microsoft.com/mssql/server
+    tag: 2022-latest
+
+  containerPort: 1433
+
+  service:
+    port: 1433
+    targetPort: 1433
+
+
+ui:
+  replicas: 1
+
+  image:
+    repository: nginx
+    tag: latest
+
+  containerPort: 80
+
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 80
+
+
+ingress:
+  enabled: true
+  className: nginx
+  path: /
+  pathType: Prefix

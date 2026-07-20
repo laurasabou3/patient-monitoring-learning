@@ -1,0 +1,10 @@
+# Default values for the Patient Monitoring Helm chart.
+
+api:
+  replicas: 1
+
+  image:
+    repository: patient-api
+    tag: latest
+
+  containerPort: 8000

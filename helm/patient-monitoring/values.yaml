@@ -8,3 +8,7 @@ api:
     tag: latest
 
   containerPort: 8000
+  
+  service:
+    port: 8000
+    targetPort: 8000

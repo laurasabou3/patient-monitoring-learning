@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Monitoring UI</title>
+</head>
+<body>
+    <h1>Patient Monitoring</h1>
+
+    <div id="patient">
+        Loading patient data...
+    </div>
+
+    <script>
+        fetch('/patient')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('patient').innerHTML = `
+                    <p><strong>Patient:</strong> ${data.name}</p>
+                    <p><strong>Room:</strong> ${data.room}</p>
+                    <p><strong>Heart Rate:</strong> ${data.heartRate} bpm</p>
+                    <p><strong>Oxygen:</strong> ${data.oxygen}%</p>
+                    <p><strong>Alarm:</strong> ${data.alarm ? 'YES' : 'NO'}</p>
+                `;
+            })
+            .catch(error => {
+                document.getElementById('patient').innerHTML =
+                    '<p style="color:red;">Error loading patient data</p>';
+                console.error(error);
+            });
+    </script>
+</body>
+</html>

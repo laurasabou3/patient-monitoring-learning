@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: patient-ui-deployment
+  name: patient-ui
 
 spec:
   replicas: {{ .Values.ui.replicas }}

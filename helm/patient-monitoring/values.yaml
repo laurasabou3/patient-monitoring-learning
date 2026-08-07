@@ -48,5 +48,6 @@ ui:
 ingress:
   enabled: true
   className: nginx
+  host: ""
   path: /
   pathType: Prefix

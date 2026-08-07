@@ -1,0 +1,8 @@
+api:
+  replicas: 1
+
+ui:
+  replicas: 1
+
+ingress:
+  host: dev.patient.local

@@ -2,11 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 
 metadata:
-  name: patient-ui-config
+  name: {{ .Release.Name }}-patient-ui-config
 
 data:
   index.html: |
 {{ .Files.Get "files/index.html" | nindent 4 }}
 
   nginx.conf: |
-{{ .Files.Get "files/nginx.conf" | nindent 4 }}
+{{ tpl (.Files.Get "files/nginx.conf") . | nindent 4 }}

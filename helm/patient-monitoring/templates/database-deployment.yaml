@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: patient-db
+  name: {{ .Release.Name }}-patient-db-deployment
 
 spec:
   replicas: {{ .Values.database.replicas }}
 
   selector:
     matchLabels:
-      app: patient-db
+      app: {{ .Release.Name }}-patient-db
 
   template:
     metadata:
       labels:
-        app: patient-db
+        app: {{ .Release.Name }}-patient-db
 
     spec:
       containers:
@@ -31,5 +31,5 @@ spec:
         - name: MSSQL_SA_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: patient-db-secret
+              name: {{ .Release.Name }}-patient-db-secret
               key: MSSQL_SA_PASSWORD

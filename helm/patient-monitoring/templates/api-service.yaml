@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: patient-api-service
+  name: {{ .Release.Name }}-patient-api-service
 
 spec:
   selector:
-    app: patient-api
+    app: {{ .Release.Name }}-patient-api
 
   ports:
   - port: {{ .Values.api.service.port }}

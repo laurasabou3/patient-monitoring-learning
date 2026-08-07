@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: patient-api
+  name: {{ .Release.Name }}-patient-api-deployment
 
 spec:
   replicas: {{ .Values.api.replicas }}
 
   selector:
     matchLabels:
-      app: patient-api
+      app: {{ .Release.Name }}-patient-api
 
   template:
     metadata:
       labels:
-        app: patient-api
+        app: {{ .Release.Name }}-patient-api
 
     spec:
       containers:
